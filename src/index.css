@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;650&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Global overthrows to align fully with the minimalist single-theme design */
+body {
+  background-color: #FAFCA4;
+  color: #1D1F0E;
+  font-family: var(--font-sans);
+}
+
+/* Custom selection tint compatible with the single theme */
+::selection {
+  background-color: rgba(29, 31, 14, 0.15);
+  color: #1D1F0E;
+}

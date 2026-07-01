@@ -1,0 +1,23 @@
+# Wrangler Configuration for Operava Authenticator on Cloudflare
+
+name = "operava-authenticator"
+main = "server.ts"
+compatibility_date = "2024-05-18"
+
+# Configure standard static pages hosting for the SPA front-end assets
+[site]
+bucket = "./dist"
+entry-point = "workers-site"
+
+# Define high-availability distributed SQL database mappings
+[[d1_databases]]
+binding = "DB"
+database_name = "operava_database"
+database_id = "d1-353c058c-6e8d-4d36-b25e-f9ea5de53abe"
+migrations_dir = "./database"
+
+# Security environment bindings parameters
+[vars]
+ENVIRONMENT = "production"
+SECURE_CSP_HEADERS = "true"
+TURNSTILE_SITE_KEY = "1x00000000000000000000AA" # Dummy Turnstile keys
