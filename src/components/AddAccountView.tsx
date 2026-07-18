@@ -93,7 +93,7 @@ export default function AddAccountView({ masterKey, onRefresh, onNavigateToVault
         throw new Error(data.error || "Failed to commit credential to distributed backup nodes.");
       }
 
-      setSuccessText(`Successfully encrypted and synced "${issuer}" to Cloudflare tables!`);
+      setSuccessText(`Successfully encrypted and synced "${issuer}" to the server database!`);
       
       // Clear forms
       setIssuer("");

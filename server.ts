@@ -8,7 +8,7 @@ import path from "path";
 import fs from "fs";
 import { createServer as createViteServer } from "vite";
 
-// Define local JSON database schema to emulate Cloudflare D1
+// Define local JSON database schema
 interface DBUser {
   id: string;
   email: string;

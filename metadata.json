@@ -1,6 +1,6 @@
 {
   "name": "Operava Authenticator",
-  "description": "Zero-knowledge authenticator and secure identity vault system for web and Cloudflare. Store TOTP accounts, generate OTP codes, sync encrypted vaults, and use passkeys securely.",
+  "description": "Zero-knowledge authenticator and secure identity vault system. Store TOTP accounts, generate OTP codes, sync encrypted vaults, and use passkeys securely.",
   "requestFramePermissions": ["camera"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

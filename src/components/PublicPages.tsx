@@ -447,14 +447,14 @@ export default function PublicPages({ onStartAuth, currentPage, setCurrentPage }
             </div>
             <div className="text-3xl font-extrabold text-[#1D1F0E]">Free <span className="text-xs font-normal text-[#1D1F0E]/60">/ MIT Codebase</span></div>
             <p className="text-xs text-[#1D1F0E]/75 leading-relaxed">
-              Compile and deploy Operava on your own self-hosted Cloudflare infrastructure directly using continuous pipelines.
+              Compile and deploy Operava on your own self-hosted Node.js infrastructure directly using continuous pipelines.
             </p>
             <div className="border-t border-[#1D1F0E]/10 pt-4 space-y-2 text-xs">
               <div className="flex items-center gap-2 text-[#1D1F0E]/80">
                 <Check className="w-3.5 h-3.5 text-[#1D1F0E] flex-shrink-0" /> Sovereign MIT licensed repos
               </div>
               <div className="flex items-center gap-2 text-[#1D1F0E]/80">
-                <Check className="w-3.5 h-3.5 text-[#1D1F0E] flex-shrink-0" /> Cloudflare Wrangler support
+                <Check className="w-3.5 h-3.5 text-[#1D1F0E] flex-shrink-0" /> Node.js & Express server support
               </div>
               <div className="flex items-center gap-2 text-[#1D1F0E]/80">
                 <Check className="w-3.5 h-3.5 text-[#1D1F0E] flex-shrink-0" /> Complete secure SQL schematics
@@ -525,7 +525,7 @@ export default function PublicPages({ onStartAuth, currentPage, setCurrentPage }
           <BookOpen className="w-5 h-5 text-[#1D1F0E]" /> Sovereign Edge Deployment
         </h2>
         <p className="text-[#1D1F0E]/60 font-sans text-xs">
-          Deploy and run your premium sovereign authenticator vault on private Cloudflare edge platforms.
+          Deploy and run your premium sovereign authenticator vault on private standard Node.js platforms.
         </p>
       </div>
 
@@ -537,8 +537,9 @@ export default function PublicPages({ onStartAuth, currentPage, setCurrentPage }
 git clone https://github.com/operava/authenticator-vault.git
 cd authenticator-vault
 
-# 2. Configure Cloudflare edge databases
-wrangler d1 execute operava_database --file=./database/schema.sql --local
+# 2. Configure server environments
+npm install
+npm run build
 
 # 3. Publish Server worker engines
 wrangler publish server.ts`}
@@ -548,7 +549,7 @@ wrangler publish server.ts`}
         <div className="space-y-2 font-sans text-[#1D1F0E]/80 text-xs leading-relaxed">
           <h3 className="font-bold text-[#1D1F0E]">Relational Tables Integration</h3>
           <p>
-            Cloudflare D1 runs globally consistent distributed SQLite instances. Data remains completely encrypted with user-derived keys, securing transactions, backdoors, and credential registries cleanly against exposure.
+            The server runs a local JSON database by default, extensible to distributed SQLite instances. Data remains completely encrypted with user-derived keys, securing transactions, backdoors, and credential registries cleanly against exposure.
           </p>
         </div>
       </div>

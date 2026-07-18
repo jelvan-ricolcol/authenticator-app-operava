@@ -11,7 +11,7 @@ Unlike traditional cloud authenticators that store raw or server-side-encrypted 
 
 ## 🏗️ 1. Technical Architecture & Structural Flows
 
-The application employs a modern full-stack, distributed architecture designed for low-latency edge deployment (e.g., Cloudflare Pages + Workers + D1 Database) as well as standardized local execution (Express.js):
+The application employs a modern full-stack architecture designed for standard Node.js server deployment as well as standardized local execution (Express.js):
 
 ### A. The Client Architecture (React 19 & Vite)
 The front-end is built as a modular, high-performance Single Page Application (SPA) leveraging **React 19** and **Vite** as the fast asset bundler:
@@ -24,7 +24,7 @@ The front-end is built as a modular, high-performance Single Page Application (S
 - **Hybrid AES Encryption**: Features native **AES-256-GCM** hardware-accelerated processing via browser `window.crypto.subtle`. If sub-allocated in iframe sandboxes or restricted environments, the engine gracefully fallbacks to a high-performance **CryptoJS PBKDF2/AES-256-CBC** software module to prevent interface freezing while retaining strict security boundaries.
 - **Chronological Token Algorithms (`totp.ts`)**: Consists of robust pure-TypeScript implementations decoding Base32/Hex segments, generating HMAC-SHA1 digests, dynamically parsing standard seed parameters (`otpauth://` URIs), and computing secure OTP sequences.
 
-### C. The Server Layer (`server.ts` & Cloudflare Edge)
+### C. The Server Layer (`server.ts`)
 The backend acts as a **stateless persistent bridge**:
 - It never accesses or registers a user's plaintext password or unencrypted secret keys.
 - It validates authenticity using the client's pre-computed mathematical verifier hash.
@@ -61,7 +61,7 @@ The application is engineered wholly using modern, clean languages and configura
 - **React 19**: Leveraging the newest functional component paradigms, effect schedules, and reactive rendering engines.
 - **Tailwind CSS**: Utility-first CSS modeling styling, rendering modern slate surfaces with pristine geometric padding, typography contrasts, and responsive layouts.
 - **Express.js & Node.js**: High-efficiency backend web routers serving production assets, security endpoints, and API proxies.
-- **Cloudflare Edge Platform (Pages, Workers, D1)**: Fully configured with `wrangler.toml` integration templates to easily port SQLite schemas to Cloudflare D1 databases for global edge consistency.
+- **Standard Node.js Platform**: Configured with standard Express.js and file system routing.
 - **Esbuild & Vite**: Compresses backend servers and builds React bundles in fractions of a second.
 
 ---
@@ -71,7 +71,6 @@ The application is engineered wholly using modern, clean languages and configura
 Each file has a distinct, single-responsibility alignment to facilitate rapid updates and audits:
 
 *   `/server.ts`: Handles requests and persistent data stores. Automatically handles production assets and runs the Express API endpoints.
-*   `/wrangler.toml`: Service worker orchestration routing static files and binding serverless Cloudflare D1 databases.
 *   `/database/schema.sql`: Clean database creation script containing normalized SQL schemas.
 *   `/src/main.tsx`: App bootstrapper injecting CSS and mounting state engines.
 *   `/src/App.tsx`: Central hub controlling session authentication, navigation, and user lock triggers.

@@ -23,4 +23,4 @@ SOFTWARE.
 ---
 
 ### Notice & Purpose
-This codebase is a designated portfolio piece, developer showcase, and project application sample created for clients by **Jelvan Ricolcol**. It is designed to illustrate excellence in client-side zero-knowledge security, elegant high-contrast visual design, local-first workflows, and performance optimization on global serverless edge environments (such as Cloudflare Pages, Workers, and D1 Databases).
+This codebase is a designated portfolio piece, developer showcase, and project application sample created for clients by **Jelvan Ricolcol**. It is designed to illustrate excellence in client-side zero-knowledge security, elegant high-contrast visual design, local-first workflows, and performance optimization on standard Node.js server environments.

@@ -9,7 +9,7 @@ Operava Authenticator enforces some of the most rigorous security procedures in 
 ### Client-Side Decentralization
 - **Decryption key safety**: Keys are derived locally inside browser RAM using `PBKDF2-HMAC-SHA256` stretches configured spanning 100,000 cycles.
 - **Null Server Knowledge**: Stored accounts are packaged into a Base64-encrypted standard JSON block utilizing **AES-256-GCM symmetric ciphers** with unique 96-bit random iv variables on each modify.
-- **The Core Axiom**: If the Cloudflare D1 distributed databases or static hosting CDNs were completely compromised by a malicious bad actor, your 2FA TOTP accounts would remain fully secure and mathematically impossible to snoop, decrypt, or brute-force without your private master password.
+- **The Core Axiom**: If the backend database or static hosting environment were completely compromised by a malicious bad actor, your 2FA TOTP accounts would remain fully secure and mathematically impossible to snoop, decrypt, or brute-force without your private master password.
 
 ---
 

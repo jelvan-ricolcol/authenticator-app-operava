@@ -1,4 +1,4 @@
--- SQL database schema for Operava Authenticator on Cloudflare D1
+-- SQL database schema for Operava Authenticator
 
 -- Table representing user accounts
 CREATE TABLE IF NOT EXISTS users (

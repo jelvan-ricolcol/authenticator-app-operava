@@ -3,7 +3,7 @@
 
 Operava Authenticator is a professional-grade, highly secure client-side zero-knowledge multi-device authenticator and dynamic identity vault system. Engineered for high-privacy environments, it provides real-time client-level TOTP calculations, military-grade local browser encryption (AES-256-GCM), interactive user activity logs, biometric challenge simulations, and secure metadata storage.
 
-Designed for production reliability, the system operates as a **full-stack Express + React (Vite)** workspace for local execution and is natively structured for low-latency hosting on automated clouds such as **Cloudflare Pages, Workers, and D1 Distributed SQL Databases**.
+Designed for production reliability, the system operates as a **full-stack Express + React (Vite)** workspace for local execution and is natively structured for low-latency hosting on standard Node.js cloud environments.
 
 ---
 
@@ -25,8 +25,7 @@ Every script and file in this codebase serves a distinct, hand-crafted engineeri
 
 ### 🌐 Server & Orchestration Layer
 *   **`server.ts`**: The main full-stack server. In development, it spins up an Express server and acts as a middleware host for HMR-free live Vite asset compiler. In production, it hosts secure API bridges (`/api/*` for session audits, authentication checks, database synchronization, and secure activities logs) and delivers compressed static page bundles out of the `dist/` directory.
-*   **`wrangler.toml`**: The deployment manifest for Cloudflare. Controls wrangler configuration to bind static static pages and register a distributed Cloudflare D1 SQL Database instance.
-*   **`/database/schema.sql`**: Contains normalized, production-ready SQL tables (`users`, `vault_entries`, `sessions`, `audit_logs`) with indexing optimized for SQLite (Cloudflare D1) and standard SQL platforms.
+*   **`/database/schema.sql`**: Contains normalized, production-ready SQL tables (`users`, `vault_entries`, `sessions`, `audit_logs`) intended for future SQL migrations (currently running with an emulated JSON store).
 
 ### ⚙️ Cryptographic and Algorithmic Core (`/src/utils/`)
 *   **`crypto.ts`**: The cryptographic engine. Wraps WebCrypto SubtleCrypto APIs for key derivation, generation of cryptographically secure salts/IVs, and AES-256-GCM actions. Contains a high-performance CryptoJS AES-256-CBC with PKCS7 padding fallback module for restricted sandboxed contexts. Also exposes `safeCopyToClipboard()` to handle context-safe clipboard copies.
@@ -76,9 +75,9 @@ Execute this system locally on your development machine in simple steps:
 
 ---
 
-## ⚡ Cloudflare Pages, Workers & D1 Deployments
+## ⚡ Production Deployment
 
-Consult **[DEPLOYMENT.md](./DEPLOYMENT.md)** for detailed guides explaining how to configure your databases on Cloudflare, transfer structures, and establish continuous deployment workflows mapping to GitHub repositories.
+Consult **[DEPLOYMENT.md](./DEPLOYMENT.md)** for detailed guides explaining how to configure your standard Node.js server, transfer structures, and establish continuous deployment workflows mapping to GitHub repositories.
 
 ---
 
