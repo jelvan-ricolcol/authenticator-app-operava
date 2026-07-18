@@ -76,6 +76,30 @@ Make sure to attach a persistent disk or volume to your deployment so that `db.j
 
 ---
 
+## 🗄️ Part 5: Backend Architecture & Persistence
+
+The backend operates as a monolithic **Express.js** server managed within `server.ts`. It controls SPA asset delivery alongside secure API integrations.
+
+### 1. Database Persistence (`db.json`)
+The application currently bypasses heavy SQL infrastructure in favor of a local JSON schema, creating an instantly portable zero-configuration database.
+- **Storage Path**: `db.json` (auto-generated in the root working directory).
+- **Structure**: Stores relational collections including `users`, `vaultEntries`, `sessions`, and `auditLogs`.
+- **Warning on Ephemeral Storage**: When deploying on containerized instances (like Docker, Heroku, or Render), you **must mount a persistent disk volume** mapped to the working directory. Otherwise, `db.json` resets on every deployment cycle or container spin-down.
+
+### 2. Security Middleware & Headers
+The server enforces rigorous enterprise security measures directly at the network layer:
+- **Strict Content-Security-Policy (CSP)**: Locks down cross-site scripting (XSS) vectors while preserving internal operations and sandbox boundaries.
+- **In-Memory Rate Limiting**: Tracks failed authentication attempts (`loginFailures`) to mitigate and block targeted brute-force and dictionary attacks.
+- **Session Verification**: Backend endpoints actively validate session tokens against the internal session registry.
+
+### 3. API Endpoint Mappings
+The server coordinates the following critical internal paths:
+- `/api/auth/*`: Controls zero-knowledge authentication handshakes, master key enrollment, and passkey registration.
+- `/api/vault/*`: The core storage conduit dealing purely with sealed WebCrypto payloads (list, add, update, delete).
+- `/api/security/*`: Exposes session management tools and immutable activity logs for user review.
+
+---
+
 ## 🔒 Security & Client Production Pledge
 No decryptor hashes, master secrets, or TOTP keys ever traverse the network plaintext. Decryption pipelines remain fully sealed within the web browser.
 
