@@ -1,0 +1,1 @@
+This folder contains the built output assets for the worker "operava-authenticator" generated at 2026-07-18T00:49:35.144Z.
