@@ -1,5 +1,5 @@
 # Operava Authenticator
-### Developed and Hand-Coded by **Jelvan Ricolcol, Developer**
+#Jelvan Ricolcol, Developer
 
 Operava Authenticator is a professional-grade, highly secure client-side zero-knowledge multi-device authenticator and dynamic identity vault system. Engineered for high-privacy environments, it provides real-time client-level TOTP calculations, military-grade local browser encryption (AES-256-GCM), interactive user activity logs, biometric challenge simulations, and secure metadata storage.
 
